@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeddah Expansion - Vendor Partnership Opportunity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .kpi-box {
+            background-color: #00A6FB;
+            color: white;
+        }
+        .flow-chart-box {
+            border: 2px solid #00A6FB;
+            background-color: white;
+        }
+        .flow-chart-arrow {
+            color: #00A6FB;
+            font-weight: bold;
+        }
+        .accent-text {
+            color: #DC0073;
+        }
+        .accent-bg {
+            background-color: #DC0073;
+        }
+        .highlight-bg {
+            background-color: #FFBC42;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white shadow-md p-6 text-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Partnership Opportunity: Jeddah Expansion</h1>
+        <p class="mt-2 text-lg text-gray-600">We are seeking reliable facility service vendors for our new operations in Jeddah.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6 text-center">
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Our Vision for Growth</h2>
+                <p class="text-gray-600 mb-4">We are on a rapid growth trajectory. Partner with us as we expand our portfolio.</p>
+                <div class="highlight-bg text-gray-900 rounded-lg p-6">
+                    <p class="text-2xl font-semibold">Projected Portfolio within 2 Months</p>
+                    <p class="text-6xl md:text-7xl font-extrabold mt-2">100</p>
+                    <p class="text-2xl font-semibold">Apartments</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-6 text-gray-900">Our Service Ecosystem</h2>
+                <p class="text-center text-gray-600 mb-8">We require partners who can deliver on two distinct service models. This structure ensures both consistent quality for our core properties and flexibility for ad-hoc needs.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-4">
+                    <div class="w-full md:w-1/2 p-4 flow-chart-box rounded-lg">
+                        <h3 class="font-bold text-xl text-center accent-text">Recurring Services</h3>
+                        <p class="text-sm text-center text-gray-500 mb-4">(Fixed Retainer / Per-Unit Fee)</p>
+                        <ul class="space-y-2 list-inside">
+                            <li class="p-2 bg-blue-50 rounded-md">🧹 Cleaning (All Types)</li>
+                            <li class="p-2 bg-blue-50 rounded-md">🧺 Laundry Services</li>
+                            <li class="p-2 bg-blue-50 rounded-md">📦 Inventory Management</li>
+                            <li class="p-2 bg-blue-50 rounded-md">🔧 Minor Maintenance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 p-4 flow-chart-box rounded-lg">
+                        <h3 class="font-bold text-xl text-center accent-text">Ad-hoc Services</h3>
+                        <p class="text-sm text-center text-gray-500 mb-4">(As-Requested Basis)</p>
+                        <ul class="space-y-2 list-inside">
+                            <li class="p-2 bg-pink-50 rounded-md">🛠️ Major Maintenance</li>
+                            <li class="p-2 bg-pink-50 rounded-md">🐜 Fumigation</li>
+                            <li class="p-2 bg-pink-50 rounded-md">✨ Deep Cleaning</li>
+                            <li class="p-2 bg-pink-50 rounded-md">📸 Photography</li>
+                            <li class="p-2 bg-pink-50 rounded-md">🛡️ Security Assistance</li>
+                            <li class="p-2 bg-pink-50 rounded-md">➕ Special Operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-center mb-2 text-gray-900">Initial Launch Scope</h2>
+                    <p class="text-center text-gray-600 mb-4">We will begin with 30 apartments, featuring a mix of exclusive and non-exclusive service agreements. Our exclusive properties represent a steady, predictable workflow.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="initialSplitChart"></canvas>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center">
+                <h2 class="text-2xl font-bold mb-2 text-gray-900">Initial Monthly Volume</h2>
+                <p class="text-gray-600 mb-4">Based on our 55% occupancy rate for the 9 exclusive apartments.</p>
+                <div class="kpi-box rounded-lg p-6 w-full">
+                    <p class="text-lg font-semibold">Estimated Monthly Recurring</p>
+                    <p class="text-6xl font-extrabold mt-2">~50</p>
+                    <p class="text-lg font-semibold">Cleaning Services</p>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-2 text-gray-900">Projected Growth Trajectory (2 Months)</h2>
+                <p class="text-center text-gray-600 mb-4">As we scale to 100 apartments, our need for a dedicated, exclusive partner grows significantly. This chart illustrates the substantial increase in guaranteed, recurring service volume.</p>
+                <div class="chart-container max-w-4xl">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-center mb-6 text-gray-900">Our Operational Framework</h2>
+                <p class="text-center text-gray-600 mb-8">Efficiency and responsiveness are key to our guest experience. We have defined clear expectations for critical tasks.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
+                        <div class="accent-bg text-white rounded-full h-12 w-12 flex items-center justify-center font-bold text-lg">1-3h</div>
+                        <div>
+                            <h3 class="font-bold text-lg">Minor Maintenance Response</h3>
+                            <p class="text-gray-600">All minor issues must be resolved within 1 to 3 hours of the request.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg">
+                        <div class="highlight-bg text-gray-900 rounded-full h-12 w-12 flex items-center justify-center font-bold text-lg">4hr</div>
+                        <div>
+                            <h3 class="font-bold text-lg">Priority Cleaning Window</h3>
+                            <p class="text-gray-600">All priority cleaning between check-out (12 PM) and check-in (4 PM) must be completed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-200">
+            <h2 class="text-2xl font-bold">Ready to Partner With Us?</h2>
+            <p class="text-gray-600 mt-2">Please refer to the full quotation request document to submit your pricing.</p>
+            <p class="text-gray-600">We look forward to building a successful partnership in Jeddah.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function wrapText(text, maxLen) {
+            if (text.length <= maxLen) {
+                return text;
+            }
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLen && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                           size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    padding: 12,
+                    titleFont: {
+                        size: 16
+                    },
+                    bodyFont: {
+                        size: 14
+                    }
+                }
+            }
+        };
+
+        const initialSplitCtx = document.getElementById('initialSplitChart').getContext('2d');
+        new Chart(initialSplitCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Exclusive (9 Apts)', 'Non-Exclusive (21 Apts)'],
+                datasets: [{
+                    label: 'Apartment Split',
+                    data: [30, 70],
+                    backgroundColor: ['#00A6FB', '#FFBC42'],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                cutout: '70%',
+            }
+        });
+
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Exclusive Apartments', 'Est. Monthly Cleanings'],
+                datasets: [
+                    {
+                        label: 'Phase 1: Initial Launch',
+                        data: [9, 50],
+                        backgroundColor: '#FFBC42',
+                        borderColor: '#E7A83C',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Phase 2: Growth Projection',
+                        data: [50, 280],
+                        backgroundColor: '#00A6FB',
+                        borderColor: '#0095E2',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                 ...sharedChartOptions,
+                 scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: true,
+                            color: '#e5e7eb'
+                        }
+                    }
+                 }
+            }
+        });
+    </script>
+</body>
+</html>
